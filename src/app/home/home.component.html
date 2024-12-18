@@ -1,11 +1,24 @@
 <div>
     <img src="" alt="">
     <br>
-  </div>
+</div>
   <div class="flex flex-col justify-center text-center font-bold text-xl">
-    <h1 class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-tight p-6 hover:text-gray-500">
-      FIGMA'S 😍 COLLECTION 🔥 OF <br />
-      <span class="text-blue-600">LAYERS</span> AND <span class="text-red-500">COMPONENTS</span> 💥 <br />
-      FOR YOU AND YOUR 🫂 FRIENDS
-    </h1>
+    <h1 class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[48px] leading-tight p-6 hover:text-gray-500">
+      DISCOVER 😍 STUNNING <span class="text-blue-600">DEALS</span> AND <br />
+      TRENDY <span class="text-red-500">COLLECTIONS</span> 🔥 <br />
+      FOR YOU AND YOUR 🛍️ STYLE
+    </h1>    
   </div>
+
+<div class="flex flex-wrap gap-16 p-4 justify-center">
+    <div *ngFor="let pl of productList;let i = index" class="cursor-pointer" (click)="navigateProduct(pl.name,i)">
+      <div class="w-72 h-72 border border-[#3C3D37] bg-[#697565] rounded-[30px] flex items-center justify-center overflow-hidden">
+        <img [src]="pl.img" alt="Product Image" class="h-60 w-60 rounded border border-[#ECDFCC] border-4">
+      </div>
+      <div class="ml-2 mt-2">
+        <p class="text-lg font-bold text-black mb-2 text-xl">{{ pl.name }}</p>
+        <p class="text-gray-500 font-semibold text-sm">Rs. {{ pl.price | currency }}</p>
+      </div>
+    </div>
+</div>
+  

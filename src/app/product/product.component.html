@@ -1,0 +1,22 @@
+<div class="flex flex-row space-x-8 justify-center mt-20">
+    <div class="flex flex-col items-center space-y-4">
+      <div *ngFor="let img of productList[index].images">
+        <img [src]="img" alt="Product Image" class="h-20 w-20 object-cover rounded-2xl cursor-pointer border border-[#697565] border-4 p-1" #ref  (click)="loadImage(img,ref)">
+      </div>
+    </div>
+    <div>
+      <img [src]="productImg" alt="Main Product Image" class="h-[32rem] w-[32rem] object-cover rounded-2xl">
+    </div>
+    <div class="flex flex-col space-y-4">
+      <h1 class="text-5xl font-bold">{{ productList[index].name }}</h1>
+      <div>
+        <p class="text-sm underline cursor-pointer text-gray-500">Size Guide</p>
+      </div>
+      <div class="flex flex-row items-center space-x-4">
+        <button class="bg-green-500 text-white py-2 px-4 rounded-lg">ADD</button>
+        <p class="font-bold text-lg"></p>
+        <button class="bg-red-500 text-white py-2 px-4 rounded-lg">SUB</button>
+      </div>
+    </div>
+  </div>
+  

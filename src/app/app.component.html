@@ -1,10 +1,16 @@
-<div class="flex justify-between p-6 bg-[#facc15] font-bold">
-  <div class="flex space-x-4">
-    <button type="button" class="border border-black border-4 rounded-xl p-2 hover:bg-black hover:text-white" (click)="navigateHome()">SHOP</button>
-    <button type="button" class="border border-black border-4 rounded-xl p-2 hover:bg-black hover:text-white" (click)="navigateToAbout()">ABOUT</button>
-  </div>
-  <h1 class="text-xl">FIGMA  SHOPPING  APP</h1>
-  <p>wait</p>
+<div class="relative flex flex-row p-6 font-bold bg-[#1E201E] text-[#ECDFCC]">
+ <div class="flex space-x-4">
+    <a routerLink="" class="text-sm border border-[#ECDFCC] border-2 rounded-xl p-1 hover:bg-[#ECDFCC] hover:text-[#1E201E]" >
+      SHOP
+    </a>
+    <a routerLink="about" class="text-sm border border-[#ECDFCC] border-2 rounded-xl p-1 hover:bg-[#ECDFCC] hover:text-[#1E201E]" >
+      ABOUT
+    </a>
+</div>
+<h1 class="absolute left-1/2 transform -translate-x-1/2 text-xl"> MY SHOPPING APP</h1>
+<button type="button" class="ml-auto text-sm border border-[#ECDFCC] border-2 rounded-xl p-1 hover:bg-[#ECDFCC] hover:text-[#1E201E]" >
+    CART
+  </button>
 </div>
 <router-outlet></router-outlet>
 

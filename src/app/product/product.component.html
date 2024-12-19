@@ -11,12 +11,21 @@
       <h1 class="text-5xl font-bold">{{ productList[index].name }}</h1>
       <div>
         <p class="text-sm underline cursor-pointer text-gray-500">Size Guide</p>
-      </div>
+      </div> 
+      <div class="flex gap-4 flex-wrap">
+        <ng-container *ngFor="let size of sizeList">
+          <button class="border border-black border-2 h-12 w-12 rounded-full font-bold" #ref (click)="setSize(size,ref)">
+            {{ size }}
+          </button>
+        </ng-container>
+      </div>   
       <div class="flex flex-row items-center space-x-4">
-        <button class="bg-green-500 text-white py-2 px-4 rounded-lg">ADD</button>
-        <p class="font-bold text-lg"></p>
-        <button class="bg-red-500 text-white py-2 px-4 rounded-lg">SUB</button>
+        <button class="bg-green-500 text-white py-2 px-4 rounded-lg" (click)="increment()">ADD</button>
+        <p class="font-bold text-lg">{{count}}</p>
+        <button class="bg-red-500 text-white py-2 px-4 rounded-lg" (click)="decrement()">SUB</button>
       </div>
+      <button class="h-12 border border-black border-2 rounded-3xl font-bold hover:bg-black hover:text-white" (click)="addingToCart(index)">ADD TO CART</button>
     </div>
   </div>
+
   

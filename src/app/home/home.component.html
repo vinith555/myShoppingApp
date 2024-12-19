@@ -12,8 +12,8 @@
 
 <div class="flex flex-wrap gap-16 p-4 justify-center">
     <div *ngFor="let pl of productList;let i = index" class="cursor-pointer" (click)="navigateProduct(pl.name,i)">
-      <div class="w-72 h-72 border border-[#3C3D37] bg-[#697565] rounded-[30px] flex items-center justify-center overflow-hidden">
-        <img [src]="pl.img" alt="Product Image" class="h-60 w-60 rounded border border-[#ECDFCC] border-4">
+      <div class="w-72 h-80 border border-[#3C3D37] border-4 rounded-[30px] flex items-center justify-center overflow-hidden">
+        <img [src]="pl.img" alt="Product Image" class="h-72 w-60 rounded ">
       </div>
       <div class="ml-2 mt-2">
         <p class="text-lg font-bold text-black mb-2 text-xl">{{ pl.name }}</p>

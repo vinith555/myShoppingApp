@@ -1,1 +1,25 @@
-<p>cart works!</p>
+<div class="mt-10 mr-28 ml-28">
+    <p class="font-bold text-3xl">{{noOfItems}} items in the cart</p>
+    <hr class="w-auto h-1 my-8 bg-black border-0 rounded ">
+</div>
+<div class="flex flex-col items-center gap-32" *ngIf="noOfItems == 0; else no">
+    <h1 class="font-bold text-6xl mt-10">CART IS EMPTY</h1>
+    <a routerLink="" class="border border-4 border-black rounded-3xl h-auto w-64 flex items-center justify-center font-bold py-2 hover:bg-black hover:text-white">SEE ALL PRODUCTS</a>
+</div>
+<ng-template #no>
+    <div class="flex flex-col mr-28 ml-28">
+        <div class="grid grid-cols-4 border-black py-2">
+            <p class="col-start-1 font-bold text-2xl text-left">Item</p>
+            <p class="font-bold text-2xl text-center col-start-2">Price</p>
+            <p class="font-bold text-2xl text-center col-start-3">Qty</p>
+            <p class="font-bold text-2xl text-right col-start-4">Subtotal</p>
+        </div>
+        
+              
+        <hr>
+        <div>
+        
+        </div>
+    </div>
+</ng-template>
+

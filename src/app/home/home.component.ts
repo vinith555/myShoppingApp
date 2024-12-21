@@ -24,6 +24,6 @@ productList:{img:string,name:string,price:number}[] = [
 ]
 navigateProduct(name:string,value:number){
   this.route.navigate(['product',name,value]);
-  console.log(value);
+  // console.log(value);
 }
 }

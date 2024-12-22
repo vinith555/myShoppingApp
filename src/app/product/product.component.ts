@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ProductListService } from '../product-list.service';
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -9,29 +10,19 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit{
-  productList:{img:string,name:string,price:string,images:string[]}[] = [
-    {img:'img1.jpg',name:'Classic maroon t-shirt',price:'₹1,200',images:['img1.jpg','img1.1.jpg','img1.2.jpg','img1.3.jpg']},
-    {img:'img2.jpg',name:'Trendy gray hoodie',price:'₹1,800',images:['img2.jpg','img2.1.jpg','img2.2.jpg']},
-    {img:'img3.jpg',name:'Modern stylish sneakers',price:'₹1,999',images:['img3.jpg','img3.1.jpg','img3.4.jpg','img3.3.jpg']},
-    {img:'img4.jpg',name:'Checkered green shirt',price:'₹1,299',images:['img4.jpg','img4.1.jpg','img4.2.jpg','img4.3.jpg']},
-    {img:'img5.jpg',name:'Classic gray jeans',price:'₹1,499',images:['img5.jpg','img5.1.jpg','img5.2.jpg','img5.3.jpg','img5.4.jpg']},
-    {img:'img6.jpg',name:'Maroon casual shirt',price:'₹2,999',images:['img6.jpg','img6.1.jpg','img6.2.jpg','img6.3.jpg','img6.4.jpg']},
-    {img:'img7.jpg',name:'Distressed blue jeans',price:'₹1,699',images:['img7.jpg','img7.1.jpg','img7.2.jpg','img7.3.jpg','img7.4.jpg']},
-    // {img:'img9.avif',name:'Modern Outfit Essentials',price:'₹2,799'},
-    // {img:'img10.avif',name:'Trendy Sneakers Display',price:'₹2,499'}
-  ]
+  productList:{img:string,name:string,price:number,images:string[]}[] = [];
   
   sizeList:string[]=['S','M','L','XL','2XL'];
   sizeValue:string='';
 
-  count:number = 0;
+  count:number = 1 ;
   increment(){this.count++;}
   decrement(){
-    if(this.count>0){
+    if(this.count>1){
       this.count--
     }
   }
-  constructor(private route:ActivatedRoute,private renderer: Renderer2){}
+  constructor(private route:ActivatedRoute,private renderer: Renderer2,private product:ProductListService){}
   index!:number;
   productImg:string = '';
   currentElement!: HTMLElement;
@@ -45,6 +36,7 @@ export class ProductComponent implements OnInit{
     this.currentElement = reference;
   }
   ngOnInit(): void {
+      this.productList = this.product.getProductList();
       this.route.params.subscribe(
         (data:Params)=>{this.index = +data['id']; 
         if (this.index >= 0 && this.index < this.productList.length) {
@@ -67,10 +59,15 @@ export class ProductComponent implements OnInit{
     this.currentElement1 = reference;
   }
 
-  addingToCart(index:number){
-    console.log(this.count);
-    console.log(this.sizeValue);
-    console.log(index);
+  addingToCart(ind:number){
+    const item = {
+      img:this.productList[ind].img,
+      name:this.productList[ind].name,
+      price:this.productList[ind].price,
+      size:this.sizeValue,
+      quantity:this.count,
+    };
+    this.product.addCartItems(item);
   }
 
 }

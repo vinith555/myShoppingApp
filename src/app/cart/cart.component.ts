@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, DoCheck, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ProductListService } from '../product-list.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -8,15 +10,37 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent {
-  noOfItems:number = 1;
-  cartItems:{img:string,name:string,price:number}[] = [
-    {img:'img1.jpg',name:'Classic maroon t-shirt',price:1200},
-    {img:'img2.jpg',name:'Trendy gray hoodie',price:2499},
-    {img:'img3.jpg',name:'Modern stylish sneakers',price:1800},
-    {img:'img4.jpg',name:'Checkered green shirt',price:1999},
-    {img:'img5.jpg',name:'Classic gray jeans',price:1299},
-    {img:'img6.jpg',name:'Maroon casual shirt',price:1499},
-    {img:'img7.jpg',name:'Distressed blue jeans',price:2999},]
-    constructor(){}
+export class CartComponent implements OnInit,OnDestroy{
+  sub = new Subscription();
+  noOfItems:number = 0;
+  totalAmount:number = 0;
+  cartItems:{img:string,name:string,price:number,size:string,quantity:number}[] = [];
+    constructor(private product : ProductListService){}
+    ngOnInit(): void {
+      this.sub = this.product.cartItems.subscribe(
+        (items) =>{
+          this.cartItems = items;
+          console.log(this.cartItems);
+        }
+      );
+      this.cartItems.forEach((element)=>{
+        this.totalAmount += element.price * element.quantity;
+        this.noOfItems += element.quantity;
+      });
+    }
+    ngOnDestroy(): void {
+        this.sub.unsubscribe();
+    }
+    increaseQuantity(index:number){
+        this.cartItems[index].quantity++;
+        this.noOfItems++;
+        this.totalAmount += this.cartItems[index].price;
+    }
+    decreaseQuantity(index:number){
+      if(this.cartItems[index].quantity>1){
+        this.cartItems[index].quantity--;
+        this.noOfItems--;
+        this.totalAmount -= this.cartItems[index].price;
+      }
+    }
 }

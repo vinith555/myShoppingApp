@@ -4,22 +4,43 @@
 </div>
 <div class="flex flex-col items-center gap-32" *ngIf="noOfItems == 0; else no">
     <h1 class="font-bold text-6xl mt-10">CART IS EMPTY</h1>
-    <a routerLink="" class="border border-4 border-black rounded-3xl h-auto w-64 flex items-center justify-center font-bold py-2 hover:bg-black hover:text-white">SEE ALL PRODUCTS</a>
+    <a routerLink="" fragment="home" class="border border-4 border-black rounded-3xl h-auto w-64 flex items-center justify-center font-bold py-2 hover:bg-black hover:text-white">SEE ALL PRODUCTS</a>
 </div>
 <ng-template #no>
     <div class="flex flex-col mr-28 ml-28">
-        <div class="grid grid-cols-4 border-black py-2">
-            <p class="col-start-1 font-bold text-2xl text-left">Item</p>
-            <p class="font-bold text-2xl text-center col-start-2">Price</p>
-            <p class="font-bold text-2xl text-center col-start-3">Qty</p>
-            <p class="font-bold text-2xl text-right col-start-4">Subtotal</p>
+        <div class="grid grid-cols-5 border-b border-black py-2">
+            <p class="col-span-2 font-bold text-2xl text-left">Item</p>
+            <p class="font-bold text-2xl text-center">Price</p>
+            <p class="font-bold text-2xl text-center">Qty</p>
+            <p class="font-bold text-2xl text-right">Subtotal</p>
+        </div>  
+        <div class="grid grid-cols-5 border-b border-black py-2 items-center" *ngFor="let list of cartItems; let i = index">
+            <div class="flex items-center col-span-2 gap-4">
+                <div class="flex-shrink-0">
+                    <button
+                        class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black">
+                        ×
+                    </button>
+                </div>
+                <div class="flex-shrink-0">
+                    <img [src]="list.img" alt="" class="h-24 w-24 border border-black border-2 rounded-2xl">
+                </div>
+                <h3 class="text-2xl font-bold text-left flex-grow">
+                    {{ list.name }}
+                </h3>
+            </div>
+                 
+            <h4 class="text-center">{{ list.price | currency }}</h4>
+            <div class="flex flex-row justify-center gap-2">
+                <button class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="increaseQuantity(i)">+</button>
+                <p class="text-center">{{list.quantity}}</p>
+                <button class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="decreaseQuantity(i)">-</button>
+            </div>
+            <h4 class="text-right">{{ list.price * list.quantity | currency }}</h4>
         </div>
-        
-              
-        <hr>
-        <div>
-        
-        </div>
+        <h1 class="place-self-end mt-5 text-2xl font-bold">TOTAL : {{totalAmount | currency}} </h1> 
+        <button class="place-self-center mt-5 border border-2 text-black border-black rounded-3xl p-3 font-bold hover:text-white hover:bg-black">CHECK OUT</button>       
     </div>
+
 </ng-template>
 

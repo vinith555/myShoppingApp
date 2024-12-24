@@ -8,10 +8,15 @@ export class ProductListService {
   cartItems = this.cartItemsSource.asObservable();
   
   addCartItems(item:{img:string,name:string,price:number,size:string,quantity:number}){
-    const currentCart = this.cartItemsSource.value; 
-    currentCart.push(item); 
+    const currentCart = this.cartItemsSource.value;
+    const index = currentCart.findIndex(cartItem => cartItem.name === item.name && cartItem.size === item.size);
+    if (index === -1) {
+    currentCart.push(item);
+    } else {
+    currentCart[index].quantity += item.quantity;
+    }
     this.cartItemsSource.next(currentCart);
-  }
+    }
     constructor() { }
     productList:{img:string,name:string,price:number,images:string[]}[] = [
       {img:'img1.jpg',name:'Classic maroon t-shirt',price:1200,images:['img1.jpg','img1.1.jpg','img1.2.jpg','img1.3.jpg']},

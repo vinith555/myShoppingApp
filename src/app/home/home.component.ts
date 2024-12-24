@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router,RouterLink } from '@angular/router';
 import { ProductListService } from '../product-list.service';
+import { BottomdetailComponent } from '../bottomdetail/bottomdetail.component';
+import { BgcolorDirective } from '../bgcolor.directive';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,BottomdetailComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

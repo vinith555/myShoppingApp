@@ -8,18 +8,19 @@
 </div>
 <ng-template #no>
     <div class="flex flex-col mr-28 ml-28">
-        <div class="grid grid-cols-5 border-b border-black py-2">
+        <div class="grid grid-cols-6 border-b border-black py-2">
             <p class="col-span-2 font-bold text-2xl text-left">Item</p>
             <p class="font-bold text-2xl text-center">Price</p>
+            <p class="font-bold text-2xl text-center">Size</p> 
             <p class="font-bold text-2xl text-center">Qty</p>
             <p class="font-bold text-2xl text-right">Subtotal</p>
-        </div>  
-        <div class="grid grid-cols-5 border-b border-black py-2 items-center" *ngFor="let list of cartItems; let i = index">
+        </div>    
+        <div class="grid grid-cols-6 border-b border-black py-2 items-center" *ngFor="let list of cartItems; let i = index">
             <div class="flex items-center col-span-2 gap-4">
                 <div class="flex-shrink-0">
                     <button
-                        class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black">
-                        ×
+                        class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="removeItem(i,list.price,list.quantity)">
+                        <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div class="flex-shrink-0">
@@ -31,16 +32,21 @@
             </div>
                  
             <h4 class="text-center">{{ list.price | currency }}</h4>
-            <div class="flex flex-row justify-center gap-2">
-                <button class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="increaseQuantity(i)">+</button>
-                <p class="text-center">{{list.quantity}}</p>
-                <button class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="decreaseQuantity(i)">-</button>
-            </div>
+            <h4 class="text-center text-2xl">{{list.size}}</h4>
+            <div class="flex flex-row justify-center items-center gap-4">
+                <button class="border border-2 h-12 w-12 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="increaseQuantity(i)">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <p class="text-center text-lg font-semibold">{{ list.quantity }}</p>
+                <button class="border border-2 h-12 w-12 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="decreaseQuantity(i)">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>            
             <h4 class="text-right">{{ list.price * list.quantity | currency }}</h4>
         </div>
         <h1 class="place-self-end mt-5 text-2xl font-bold">TOTAL : {{totalAmount | currency}} </h1> 
         <button class="place-self-center mt-5 border border-2 text-black border-black rounded-3xl p-3 font-bold hover:text-white hover:bg-black">CHECK OUT</button>       
     </div>
-
 </ng-template>
+<app-bottomdetail></app-bottomdetail>
 

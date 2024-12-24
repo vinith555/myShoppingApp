@@ -3,10 +3,11 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductListService } from '../product-list.service';
 import { Subscription } from 'rxjs';
+import { BottomdetailComponent } from '../bottomdetail/bottomdetail.component';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink,CommonModule,BottomdetailComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -20,7 +21,6 @@ export class CartComponent implements OnInit,OnDestroy{
       this.sub = this.product.cartItems.subscribe(
         (items) =>{
           this.cartItems = items;
-          console.log(this.cartItems);
         }
       );
       this.cartItems.forEach((element)=>{
@@ -31,6 +31,13 @@ export class CartComponent implements OnInit,OnDestroy{
     ngOnDestroy(): void {
         this.sub.unsubscribe();
     }
+
+    removeItem(index:number,price:number,quantity:number){
+      this.cartItems.splice(index,1);
+      this.totalAmount -= price*quantity;
+      this.noOfItems -=quantity;
+    }
+
     increaseQuantity(index:number){
         this.cartItems[index].quantity++;
         this.noOfItems++;

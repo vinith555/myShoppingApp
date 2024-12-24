@@ -1,0 +1,5 @@
+/* Add transition for smooth appearance/disappearance */
+[appScrolldown] {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  

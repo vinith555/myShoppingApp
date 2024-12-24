@@ -1,11 +1,12 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductListService } from '../product-list.service';
+import { BottomdetailComponent } from '../bottomdetail/bottomdetail.component';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,BottomdetailComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -22,7 +23,7 @@ export class ProductComponent implements OnInit{
       this.count--
     }
   }
-  constructor(private route:ActivatedRoute,private renderer: Renderer2,private product:ProductListService){}
+  constructor(private activeRoute:ActivatedRoute,private renderer: Renderer2,private product:ProductListService,private route:Router){}
   index!:number;
   productImg:string = '';
   currentElement!: HTMLElement;
@@ -37,7 +38,7 @@ export class ProductComponent implements OnInit{
   }
   ngOnInit(): void {
       this.productList = this.product.getProductList();
-      this.route.params.subscribe(
+      this.activeRoute.params.subscribe(
         (data:Params)=>{this.index = +data['id']; 
         if (this.index >= 0 && this.index < this.productList.length) {
           this.productImg = this.productList[this.index].images[0];
@@ -68,6 +69,7 @@ export class ProductComponent implements OnInit{
       quantity:this.count,
     };
     this.product.addCartItems(item);
+    this.route.navigate(["cart"]);
   }
 
 }

@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 export const routes: Routes = [
@@ -12,5 +13,5 @@ export const routes: Routes = [
     { path:'product',component:ProductComponent},
     { path:'product/:name/:id',component:ProductComponent},
     { path:'cart',component:CartComponent},
-    // { path:'cart/',component:HomeComponent}
+    { path:"**",component:PagenotfoundComponent}
 ];

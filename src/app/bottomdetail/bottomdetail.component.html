@@ -1,0 +1,31 @@
+<div class="flex flex-col p-6 space-y-15 mt-20 bg-black" appBgcolor [bgIn]="color">
+    <div class="flex flex-row justify-between mx-32 gap-16">
+        <h1 class="text-6xl text-white">MY SHOPPING APP</h1>
+      <p class="text-lg font-bold  text-white">OBJECTS THAT INSPIRE.</p>
+      <p class="text-sm  text-white w-44">
+        FAQ <br />
+        Contact Us <br />
+        Privacy Policy <br />
+        Terms of Service <br />
+      </p>
+      <p class="text-sm text-white">
+        Our shopping platform is designed to bring you the best in style and sustainability. For every purchase, we contribute to 
+        <span class="font-semibold text-white">eco-friendly initiatives</span> and support local artisans. 
+        <a href="#" class="underline text-white">
+          Learn more about our sustainability commitment.
+        </a>
+      </p>      
+    </div>
+    <div class="flex flex-row justify-center items-center gap-6">
+      <a class="hover:underline cursor-pointer text-white">GITHUB</a>
+      <a class="hover:underline cursor-pointer text-white">INSTAGRAM</a>
+      <a class="hover:underline cursor-pointer text-white">LINKEDIN</a>
+      <button class="border border-2 border-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-white bg-black text-white hover:text-black font-bold" (click)="goToTop()" appBgcolor [bgIn]="color">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+    <div class="flex justify-center">
+      <a href="#" class="text-lg font-bold hover:underline cursor-pointer text-white">MyShoppingApp ↗</a>
+    </div>
+  </div>
+  

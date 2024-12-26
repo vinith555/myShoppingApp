@@ -1,19 +1,23 @@
 <div class="flex flex-col border border-gray-300 w-[32.5rem] p-2 rounded">
     <div class="flex flex-row justify-between mx-2">
-      <p class="text-gray-500">Contact</p>
-      <p>unjyhbtgvfcdsxdcfvgrthyuj</p>
+      <p class="text-gray-500 flex-shrink-0 mr-4">Contact</p>
+      <p>{{ShippingDetail.email}}</p>
       <a routerLink="/checkout" class="text-[#22c55e] text-sm underline">Change</a>
     </div>
     <hr class="mx-2 my-2">
     <div class="flex flex-row justify-between mx-2">
-      <p class="text-gray-500">Ship to</p>
-      <p>unjyhbtgvfcdsxdcfvgrthyuj</p>
+      <p class="text-gray-500 flex-shrink-0 mr-4">Ship to</p>
+      <p>
+        {{ ShippingDetail.address }}{{ ShippingDetail.addAddress ? ', ' + ShippingDetail.addAddress : '' }},
+        {{ ShippingDetail.city }}, {{ ShippingDetail.state }}, {{ ShippingDetail.pincode }},
+        {{ ShippingDetail.country }}
+      </p>      
       <a routerLink="/checkout" class="text-[#22c55e] text-sm underline">Change</a>
     </div>
 </div>
 <h1 class="mt-6 text-2xl font-semibold">Shipping method</h1>
 <div class="flex flex-row justify-between p-2 border border-gray-300 w-[32.5rem] p-2 rounded mt-4">
-<p>International shipping</p>
+<p>National shipping</p>
 <p>{{900}}</p>
 </div>
 <div class="flex flex-row justify-between mt-8">

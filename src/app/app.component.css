@@ -2,4 +2,7 @@
 [appScrolldown] {
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
+  .custom-background {
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+}
   

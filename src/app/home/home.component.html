@@ -1,8 +1,5 @@
 <app-topbar></app-topbar>
-<div>
-    <img src="" alt="">
-    <br>
-</div>
+<div class="bg-[#F5F5F5] pb-10">
   <div class="flex flex-col justify-center text-center font-bold text-xl">
     <h1 class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[48px] leading-tight p-6 hover:text-gray-500">
       DISCOVER 😍 STUNNING <span class="text-blue-600">DEALS</span> AND <br />
@@ -11,16 +8,22 @@
     </h1>    
   </div>
 
-<div class="flex flex-wrap gap-16 p-4 justify-center">
-    <div *ngFor="let pl of productList;let i = index" class="cursor-pointer" (click)="navigateProduct(pl.name,i)">
-      <div class="w-72 h-80 border border-[#3C3D37] border-4 rounded-[30px] flex items-center justify-center overflow-hidden">
-        <img [src]="pl.img" alt="Product Image" class="h-72 w-60 rounded ">
+  <div class="flex flex-wrap gap-16 p-4 justify-center">
+    <div 
+      *ngFor="let pl of productList; let i = index" 
+      class="cursor-pointer"
+      (click)="navigateProduct(pl.name, i)">
+      
+      <div class="w-72 h-80 flex items-center justify-center overflow-hidden">
+        <img [src]="pl.img" alt="Product Image" class="h-72 w-60 bg-white hover:shadow-xl transition-shadow duration-300 rounded-lg swing-in-right-bck">
       </div>
-      <div class="ml-2 mt-2">
+      <div class="ml-5 mt-2">
         <p class="text-lg font-bold text-black mb-2 text-xl">{{ pl.name }}</p>
         <p class="text-gray-500 font-semibold text-sm">Rs. {{ pl.price | currency }}</p>
       </div>
     </div>
+  </div>
+    
 </div>
 
 <app-bottomdetail></app-bottomdetail>

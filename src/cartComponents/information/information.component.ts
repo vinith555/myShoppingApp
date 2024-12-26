@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PurchaselistService } from '../../app/purchaselist.service';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-information',
@@ -13,10 +14,25 @@ import { PurchaselistService } from '../../app/purchaselist.service';
 })
 export class InformationComponent {
   constructor(private route:Router,private active:ActivatedRoute,private purchase:PurchaselistService){}
+  formData = {
+    email: '',
+    newsletter: false,
+    country: '',
+    firstName: '',
+    lastName: '',
+    address: '',
+    addAddress:'',
+    city:'',
+    state:'',
+    pincode:'',
+    phno:''
+  };
   navigateShipping(){
-    //  this.route.navigate(['shipping'],{relativeTo:this.active});
+     this.route.navigate(['shipping'],{relativeTo:this.active});
   }
-  onSubmit(f:NgForm){
-    console.log(f);
+  onSubmit(f:NgForm,event:Event){
+    event.preventDefault();
+    this.purchase.addAddress(this.formData);
+    this.navigateShipping();
   }
 }

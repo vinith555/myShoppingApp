@@ -5,22 +5,22 @@
             <button class="bg-black text-white w-64 rounded h-12">G PAY</button>
         </div>
         <p class="text-gray-600 text-center">OR</p> 
-        <form action="" class="w-[32.5rem] flex flex-col gap-4" (ngSubmit)="onSubmit(f)" #f = "ngForm">
+        <form class="w-[32.5rem] flex flex-col gap-4" (ngSubmit)="onSubmit(f,$event)" #f = "ngForm">
             <div>
                 <label for="email" class="block font-semibold text-lg">Contact</label>
                 <input type="text" id="email" name="email" [ngClass]="{ 
                     'border-red-500': !e.valid && e.touched, 
                     'border-green-500': e.touched || e.valid 
-                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="Email" ngModel required email #e = "ngModel">
+                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="Email" [(ngModel)]="formData.email" required email #e = "ngModel">
             </div>
             <div class="flex items-center gap-2">
-                <input type="checkbox" id="chek" name="chek" class="h-4 w-4" ngModel>
+                <input type="checkbox" id="chek" name="chek" class="h-4 w-4" [(ngModel)]="formData.newsletter">
                 <label for="chek" class="text-gray-700">Email me with news and offers</label>
             </div>
             <input list="country-options" name="country" [ngClass]="{ 
                 'border-red-500': !c.valid && c.touched, 
                 'border-green-500': c.touched || c.valid 
-              }" class="border border-gray-300 w-full p-2 rounded" placeholder="Country/Region" ngModel required #c = "ngModel">
+              }" class="border border-gray-300 w-full p-2 rounded" placeholder="Country/Region" [(ngModel)]="formData.country" required #c = "ngModel">
             <datalist id="country-options">
               <option value="India">
               <option value="China">
@@ -37,35 +37,34 @@
                 <input type="text" name="fname" [ngClass]="{ 
                     'border-red-500': !n.valid && n.touched, 
                     'border-green-500': n.touched || n.valid 
-                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="FirstName" ngModel required #n = "ngModel">
-                <input type="text" name="lname" class="border border-gray-300 w-full p-2 rounded" placeholder="LastName" ngModel>
+                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="FirstName" [(ngModel)]="formData.firstName" required #n = "ngModel">
+                <input type="text" name="lname" class="border border-gray-300 w-full p-2 rounded" placeholder="LastName" [(ngModel)]="formData.lastName">
             </div>
             <input type="text" name="address" [ngClass]="{ 
                 'border-red-500': !a.valid && a.touched, 
                 'border-green-500': a.touched || a.valid 
-              }" class="border border-gray-300 w-full p-2 rounded" placeholder="Address" ngModel required #a = "ngModel">
-            <input type="text" name="aditionaladd" class="border border-gray-300 w-full p-2 rounded" placeholder="Appartment, suite, etc..." ngModel>
+              }" class="border border-gray-300 w-full p-2 rounded" placeholder="Address" [(ngModel)]="formData.address" required #a = "ngModel">
+            <input type="text" name="aditionaladd" class="border border-gray-300 w-full p-2 rounded" placeholder="Appartment, suite, etc..." [(ngModel)] = "formData.addAddress" >
             <div class="flex flex-row gap-2">
                 <input type="text" name="city" [ngClass]="{ 
                     'border-red-500': !ci.valid && ci.touched, 
                     'border-green-500': ci.touched || ci.valid 
-                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="City" ngModel required #ci = "ngModel">
+                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="City" [(ngModel)] = "formData.city" required #ci = "ngModel">
                 <input type="text" name="state" [ngClass]="{ 
                     'border-red-500': !s.valid && s.touched, 
                     'border-green-500': s.touched || s.valid 
-                  }"  class="border border-gray-300 w-full p-2 rounded" placeholder="State" ngModel required #s = "ngModel">
+                  }"  class="border border-gray-300 w-full p-2 rounded" placeholder="State" [(ngModel)] = "formData.state" required #s = "ngModel">
                 <input type="text" name="pincode" [ngClass]="{ 
                     'border-red-500': !p.valid && p.touched, 
                     'border-green-500': p.touched || p.valid 
-                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="PIN Code" ngModel required #p = "ngModel">
+                  }" class="border border-gray-300 w-full p-2 rounded" placeholder="PIN Code" [(ngModel)] = "formData.pincode" required #p = "ngModel">
             </div>
             <input type="text" name="phone" [ngClass]="{ 
-                'border-red-500': !p.valid && p.touched, 
-                'border-green-500': p.touched || p.valid 
-              }" class="border border-gray-300 w-full p-2 rounded" placeholder="Phone" ngModel required #p = "ngModel">
+                'border-red-500': !pn.valid && pn.touched, 
+                'border-green-500': pn.touched || pn.valid 
+              }" class="border border-gray-300 w-full p-2 rounded" placeholder="Phone" [(ngModel)] = "formData.phno" required #pn = "ngModel">
             <div class="flex flex-row justify-between">
                 <a routerLink="/cart" class="text-[#22c55e]"> < Return to cart</a>
-                <button class="text-[#22c55e]" [disabled]="!f.valid" (click)="navigateShipping()">Continue Shopping ></button>
+                <button class="text-[#22c55e]" [disabled]="!f.valid">Continue Shopping ></button>
             </div>
         </form>
-

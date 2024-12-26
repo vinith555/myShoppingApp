@@ -1,5 +1,5 @@
 <app-topbar></app-topbar>
-<div class="flex flex-row space-x-8 justify-center mt-20">
+<div class="flex flex-row space-x-8 justify-center pt-20 pb-10 bg-[#F5F5F5]">
     <div class="flex flex-col items-center space-y-4">
       <div *ngFor="let img of productList[index].images">
         <img [src]="img" alt="Product Image" class="h-20 w-20 object-cover rounded-2xl cursor-pointer border border-[#697565] border-4 p-1" #ref  (click)="loadImage(img,ref)">
@@ -9,7 +9,7 @@
       <img [src]="productImg" alt="Main Product Image" class="h-[32rem] w-[32rem] object-cover rounded-2xl">
     </div>
     <div class="flex flex-col space-y-4">
-      <h1 class="text-5xl font-bold">{{ productList[index].name }}</h1>
+      <h1 class="text-5xl font-bold tracking-in-expand-fwd">{{ productList[index].name }}</h1>
       <div>
         <p class="text-sm underline cursor-pointer text-gray-500">Size Guide</p>
       </div> 
@@ -25,7 +25,7 @@
         <p class="font-bold text-lg">{{count}}</p>
         <button class="bg-red-500 text-white py-2 px-4 rounded-lg" (click)="decrement()">SUB</button>
       </div>
-      <button class="h-12 border border-black border-2 rounded-3xl font-bold hover:bg-black hover:text-white" (click)="addingToCart(index)">ADD TO CART</button>
+      <button class="h-12 border border-black border-2 rounded-3xl font-bold hover:bg-[#373A40] hover:text-white" (click)="addingToCart(index)">ADD TO CART</button>
     </div>
   </div>
   <app-bottomdetail></app-bottomdetail>

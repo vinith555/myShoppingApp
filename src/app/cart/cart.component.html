@@ -1,3 +1,4 @@
+<app-topbar></app-topbar>
 <div class="mt-10 mr-28 ml-28">
     <p class="font-bold text-3xl">{{noOfItems}} items in the cart</p>
     <hr class="w-auto h-1 my-8 bg-black border-0 rounded ">
@@ -45,7 +46,7 @@
             <h4 class="text-right">{{ list.price * list.quantity | currency }}</h4>
         </div>
         <h1 class="place-self-end mt-5 text-2xl font-bold">TOTAL : {{totalAmount | currency}} </h1> 
-        <button class="place-self-center mt-5 border border-2 text-black border-black rounded-3xl p-3 font-bold hover:text-white hover:bg-black">CHECK OUT</button>       
+        <button class="place-self-center mt-5 border border-2 text-black border-black rounded-3xl p-3 font-bold hover:text-white hover:bg-black" (click)="navigateCheckout()">CHECK OUT</button>       
     </div>
 </ng-template>
 <app-bottomdetail></app-bottomdetail>

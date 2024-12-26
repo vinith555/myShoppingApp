@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { InformationComponent } from '../cartComponents/information/information.component';
+import { ShippingComponent } from '../cartComponents/shipping/shipping.component';
 
 
 export const routes: Routes = [
@@ -13,5 +16,9 @@ export const routes: Routes = [
     { path:'product',component:ProductComponent},
     { path:'product/:name/:id',component:ProductComponent},
     { path:'cart',component:CartComponent},
+    { path:'checkout',component:CheckoutComponent,children:[
+        {path:'',component:InformationComponent},
+        {path:'shipping',component:ShippingComponent}
+    ]},
     { path:"**",component:PagenotfoundComponent}
 ];

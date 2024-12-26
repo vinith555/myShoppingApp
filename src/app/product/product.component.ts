@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductListService } from '../product-list.service';
 import { BottomdetailComponent } from '../bottomdetail/bottomdetail.component';
+import { TopbarComponent } from '../topbar/topbar.component';
+
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule,BottomdetailComponent],
+  imports: [CommonModule,BottomdetailComponent,TopbarComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

@@ -7,7 +7,7 @@ export class ProductListService {
   private cartItemsSource = new BehaviorSubject<{img:string,name:string,price:number,size:string,quantity:number}[]>([]);
   cartItems = this.cartItemsSource.asObservable();
   
-  addCartItems(item:{img:string,name:string,price:number,size:string,quantity:number}){
+    addCartItems(item:{img:string,name:string,price:number,size:string,quantity:number}){
     const currentCart = this.cartItemsSource.value;
     const index = currentCart.findIndex(cartItem => cartItem.name === item.name && cartItem.size === item.size);
     if (index === -1) {
@@ -33,4 +33,5 @@ export class ProductListService {
     getOneProduct(index:number){
       return this.productList[index];
     }
+    
 }

@@ -4,11 +4,13 @@ import { ActivatedRoute, Router,RouterLink } from '@angular/router';
 import { ProductListService } from '../product-list.service';
 import { BottomdetailComponent } from '../bottomdetail/bottomdetail.component';
 import { BgcolorDirective } from '../bgcolor.directive';
+import { TopbarComponent } from '../topbar/topbar.component';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,BottomdetailComponent],
+  imports: [CommonModule,BottomdetailComponent,TopbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -25,5 +27,6 @@ ngOnInit(): void {
 
 navigateProduct(name:string,value:number){
   this.route.navigate(['product',name,value]);
+  window.scrollTo({top:0})
 }
 }

@@ -1,29 +1,27 @@
 <app-topbar></app-topbar>
-<div class="bg-[#F5F5F5] pb-10">
-  <div class="flex flex-col justify-center text-center font-bold text-xl">
-    <h1 class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[48px] leading-tight p-6 hover:text-gray-500">
-      DISCOVER 😍 STUNNING <span class="text-blue-600">DEALS</span> AND <br />
-      TRENDY <span class="text-red-500">COLLECTIONS</span> 🔥 <br />
-      FOR YOU AND YOUR 🛍️ STYLE
-    </h1>    
-  </div>
-
-  <div class="flex flex-wrap gap-16 p-4 justify-center">
-    <div 
-      *ngFor="let pl of productList; let i = index" 
-      class="cursor-pointer"
-      (click)="navigateProduct(pl.name, i)">
-      
-      <div class="w-72 h-80 flex items-center justify-center overflow-hidden">
-        <img [src]="pl.img" alt="Product Image" class="h-72 w-60 bg-white hover:shadow-xl transition-shadow duration-300 rounded-lg swing-in-right-bck">
-      </div>
-      <div class="ml-5 mt-2">
-        <p class="text-lg font-bold text-black mb-2 text-xl">{{ pl.name }}</p>
-        <p class="text-gray-500 font-semibold text-sm">Rs. {{ pl.price | currency }}</p>
+  <div class=" bg-[#F5F5F5] pb-10">
+    <div class="flex flex-col justify-center text-center font-bold text-xl">
+      <h1 class="text-[32px] sm:text-[32px] md:text-[48px] lg:text-[48px] leading-tight p-6 hover:text-gray-500 font-we">
+        DISCOVER 😍 STUNNING <span class="text-blue-600">DEALS</span> AND <br />
+        TRENDY <span class="text-red-500">COLLECTIONS</span> 🔥 <br />
+        FOR YOU AND YOUR 🛍️ STYLE
+      </h1>    
+    </div>
+    <div class="flex flex-wrap gap-16 p-20 justify-center">
+      <div 
+        *ngFor="let pl of productList; let i = index" 
+        class="cursor-pointer border border-gray-500 rounded p-4 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 width-Size"
+        (click)="navigateProduct(pl.name, i)">
+        
+        <div class="w-56 h-64 flex items-center justify-center overflow-hidden">
+          <img [src]="pl.img" alt="Product Image" class="h-72 w-60 bg-white rounded-lg">
+        </div>
+        <div class="mt-2">
+          <p class="text-md text-black mb-2 text-xl">{{ pl.name |titlecase}}</p>
+          <p class="text-gray-500 font-semibold text-sm">Rs. {{ pl.price | currency }}</p>
+        </div>
       </div>
     </div>
   </div>
-    
-</div>
 
-<app-bottomdetail></app-bottomdetail>
+<!-- <app-bottomdetail></app-bottomdetail> -->

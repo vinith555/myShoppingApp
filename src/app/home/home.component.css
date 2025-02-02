@@ -72,4 +72,8 @@
       opacity: 1;
     }
   }
-  
+  @media (min-width: 300px) and (max-width: 500px) {
+        .font-we{
+                font-size: 20px;
+        }
+  }

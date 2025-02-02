@@ -34,3 +34,26 @@
     opacity: 1;
   }
 }
+@media (min-width: 300px) and (max-width: 457px) {
+  .he-wi{
+       height: 50px;   
+       width: 50px;
+  }
+  .container-size{
+    height:250px ;
+    width:200px ;
+  }
+  .para-size{
+    font-size: 30px;
+  }
+}
+@media (min-width: 457px) and (max-width: 640px){
+  .he-wi{
+    height: 60px;   
+    width: 60px;
+}
+.container-size{
+ height:350px ;
+ width:300px ;
+  }
+}

@@ -1,18 +1,18 @@
 <app-topbar></app-topbar>
-<div class="bg-[#F5F5F5]">
-    <div class="pt-10 mr-28 ml-28">
-        <p class="font-bold text-3xl">{{noOfItems}} items in the cart</p>
+<div class="bg-[#F5F5F5] h-screen ">
+    <div class="pt-10 mr-28 ml-28 margin">
+        <p class="font-bold text-3xl sm:10px">{{noOfItems}} items in the cart</p>
         <hr class="w-auto h-1 my-8 bg-black border-0 rounded ">
     </div>
     <div class="flex flex-col items-center gap-32 pb-10" *ngIf="noOfItems == 0; else no">
-        <h1 class="font-bold text-6xl mt-10">CART IS EMPTY</h1>
+        <h1 class="font-bold text-6xl mt-10 font-we">CART IS EMPTY</h1>
         <a routerLink="" fragment="home" class="border border-4 border-black rounded-3xl h-auto w-64 flex items-center justify-center font-bold py-2 hover:bg-[#373A40] hover:text-white">SEE ALL PRODUCTS</a>
     </div>
-    <ng-template #no>
-        <div class="flex flex-col mr-28 ml-28 pb-10">
+    <ng-template #no>   
+        <div class="flex flex-col mr-28 ml-28 pb-10 margin" *ngIf="!isMobile;else notMobile">
             <div class="grid grid-cols-6 border-b border-black py-2">
                 <p class="col-span-2 font-bold text-2xl text-left">Item</p>
-                <p class="font-bold text-2xl text-center">Price</p>
+                <p class="font-bold text-2xl text-center" >Price</p>
                 <p class="font-bold text-2xl text-center">Size</p> 
                 <p class="font-bold text-2xl text-center">Qty</p>
                 <p class="font-bold text-2xl text-right">Subtotal</p>
@@ -49,8 +49,44 @@
             <h1 class="place-self-end mt-5 text-2xl font-bold">TOTAL : {{totalAmount | currency}} </h1> 
             <button class="place-self-center mt-5 border border-2 text-black border-black rounded-3xl p-3 font-bold hover:text-white hover:bg-[#373A40] " (click)="navigateCheckout()">CHECK OUT</button>       
         </div>
+        <ng-template #notMobile>
+            <div >
+            <h1 class="font-bold text-2xl margin">Item</h1>
+            <div class="margin border-b border-black" *ngFor="let list of cartItems; let i = index">
+                <div class="flex items-center col-span-2 gap-4 mt-3">
+                    <div class="flex-shrink-0">
+                        <button
+                            class="border border-2 h-10 w-10 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-black" (click)="removeItem(i,list.price,list.quantity)">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img [src]="list.img" alt="" class="h-24 w-24 border border-black border-2 rounded-2xl">
+                    </div>
+                    <h3 class="text-2xl font-bold text-left flex-grow">
+                        {{ list.name }}
+                    </h3>
+                </div>
+                <div class="flex flex-row justify-between justify-center my-5">
+                <h4 class="text-center">{{ list.price * list.quantity | currency }}</h4>
+                <h4 class="text-center text-2xl font-cart">{{list.size}}</h4>
+                <div class="flex flex-row justify-center items-center gap-4 ">
+                    <button class="border border-2 h-12 w-12 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-[#373A40] height-width" (click)="increaseQuantity(i)">
+                        <i class="fa-solid fa-plus font-cart"></i>
+                    </button>
+                    <p class="text-center text-lg font-semibold">{{ list.quantity }}</p>
+                    <button class="border border-2 h-12 w-12 border-black rounded-full flex items-center justify-center text-black font-bold text-2xl hover:text-white hover:bg-[#373A40] height-width" (click)="decreaseQuantity(i)">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                </div> 
+                </div>             
+            </div>
+            <h1 class="place-self-end mt-5 text-2xl font-bold margin">TOTAL : {{totalAmount | currency}} </h1> 
+            <button class="block mx-auto mt-5 border border-2 text-black border-black rounded-3xl p-3 font-bold hover:text-white hover:bg-[#373A40] " (click)="navigateCheckout()">CHECK OUT</button>
+            </div>
+        </ng-template>
     </ng-template>
 </div>
 
-<app-bottomdetail></app-bottomdetail>
+<!-- <app-bottomdetail></app-bottomdetail> -->
 

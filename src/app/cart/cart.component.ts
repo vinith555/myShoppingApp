@@ -1,4 +1,4 @@
-import { Component, DoCheck, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, DoCheck, EventEmitter, HostListener, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductListService } from '../product-list.service';
@@ -57,4 +57,9 @@ export class CartComponent implements OnInit,OnDestroy{
       this.route.navigate(['checkout']);
       this.purchase.updatePurchaseList(this.cartItems);
     }
+  isMobile: boolean = window.innerWidth < 640;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobile = window.innerWidth < 640;
+  }
 }

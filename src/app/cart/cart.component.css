@@ -1,1 +1,19 @@
+@media (min-width:300px) and (max-width:900px) {
+    .font-we{
+        font-size: 30px;
+    }
+    .margin{
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .font-cart{
+        font-size: 20px;
+    }
+    .height-width{
+        height: 35px;
+        width: 35px;
+    }
+}
+/* @media (max-width: 639px){
 
+} */

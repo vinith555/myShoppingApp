@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component ,HostListener} from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive],
+  imports: [RouterLink,RouterLinkActive,CommonModule],
   templateUrl: './topbar.component.html',
   styleUrl: './topbar.component.css'
 })
 export class TopbarComponent {
-  isSidebarOpen = false;
+  isMobile: boolean = window.innerWidth > 768;
+  isSidebarOpen: boolean = false;
 
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen; 
-  }
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.isMobile = window.innerWidth > 768;}
 }

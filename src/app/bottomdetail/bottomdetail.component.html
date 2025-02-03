@@ -1,27 +1,25 @@
 <div class="flex flex-col p-6 space-y-15 bg-[#373A40] " appBgcolor [bgIn]="color">
-    <div class="flex flex-row justify-between mx-32 gap-16 ">
-        <h1 class="text-3xl text-white ">MY SHOPPING APP</h1>
-      <p class="text-lg font-bold  text-white">OBJECTS THAT INSPIRE.</p>
-      <p class="text-sm  text-white w-44">
-        FAQ <br />
-        Contact Us <br />
-        Privacy Policy <br />
-        Terms of Service <br />
-      </p>
-      <p class="text-sm text-white">
-        Our shopping platform is designed to bring you the best in style and sustainability. For every purchase, we contribute to 
-        <span class="font-semibold text-white">eco-friendly initiatives</span> and support local artisans. 
-        <a href="#" class="underline text-white">
-          Learn more about our sustainability commitment.
-        </a>
-      </p>      
-    </div>
+  <div class="flex flex-row justify-between mx-10 text-white text-base sm:text-sm xs:text-xs">
+    <h1 class="text-3xl sm:text-2xl xs:text-xl my-app">MY SHOPPING APP</h1>
+    <p class="text-lg font-bold sm:text-base xs:text-sm ">OBJECTS THAT INSPIRE.</p>
+    <p class="text-sm sm:text-xs xs:text-[10px] w-44 my-ob">
+      FAQ <br />
+      Contact Us <br />
+      Privacy Policy <br />
+      Terms of Service <br />
+    </p>
+    <p class="text-sm sm:text-xs xs:text-[10px] w-44 my-ob" *ngIf="!isMobile">
+      Our shopping platform is designed to bring you the best in style and sustainability. For every purchase, we contribute to 
+      <span class="font-semibold">eco-friendly initiatives</span> and support local artisans. 
+      <a href="#" class="underline">Learn more about our sustainability commitment.</a>
+    </p>
+  </div>
     <div class="flex flex-row justify-center items-center gap-6">
       <a class="hover:underline cursor-pointer text-white">GITHUB</a>
       <a class="hover:underline cursor-pointer text-white">INSTAGRAM</a>
       <a class="hover:underline cursor-pointer text-white">LINKEDIN</a>
-      <button class="border border-2 border-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-white bg-[#373A40] text-white hover:text-black font-bold" (click)="goToTop()" appBgcolor [bgIn]="color">
-        <i class="fa-solid fa-arrow-up"></i>
+      <button class="border border-2 border-white rounded-full h-12 w-12 flex items-center justify-center hover:bg-white bg-[#373A40] text-white hover:text-black font-bold he-wi" (click)="goToTop()" appBgcolor [bgIn]="color">
+        <i class="fa-solid fa-arrow-up my-ob"></i>
       </button>
     </div>
     <div class="flex justify-center">

@@ -1,5 +1,5 @@
-<div class="flex flex-row ml-52 gap-12">
-    <div class="flex flex-col items-center gap-4 my-10">
+<div class="flex flex-col lg:flex-row lg:mx-20">
+<div class="flex flex-col items-center gap-4 my-10 ">
         <h1 class="text-2xl font-bold">My Shopping App</h1>
         <div class="flex flex-row gap-2 text-sm text-gray-600">
             <p>Cart ></p>
@@ -8,9 +8,9 @@
             <p>Payment</p>
         </div>
         <router-outlet></router-outlet>
-    </div>
-<div class="bg-[#373A40] w-[730px] h-screen fixed top-0 right-0 overflow-y-auto text-white">
-    <div class="flex flex-col p-10 gap-y-6 mr-44">
+</div>
+<div class="bg-[#373A40] lg:w-[730px] w-full h-full lg:h-screen lg:fixed lg:right-0 lg:top-0 overflow-y-auto text-white">
+    <div class="flex flex-col p-10 gap-y-6 ">
         <div *ngFor="let list of purchaseList" class="flex flex-row items-center gap-6 justify-between">
             <img [src]="list.img" alt="" class="h-20 w-16 rounded border border-gray-300 border-2">
             <p>{{list.name}}</p>

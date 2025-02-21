@@ -12,7 +12,6 @@
         *ngFor="let pl of productList; let i = index" 
         class="cursor-pointer border border-gray-500 rounded p-4 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 width-Size"
         (click)="navigateProduct(pl.name, i)">
-        
         <div class="w-56 h-64 flex items-center justify-center overflow-hidden">
           <img [src]="pl.img" alt="Product Image" class="h-72 w-60 bg-white rounded-lg">
         </div>

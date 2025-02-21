@@ -5,13 +5,14 @@
 }
 @media (min-width: 300px) and (max-width: 500px){
     .my-ob{
-        font-size: 10px;
+        font-size: 6px;
     }
-    .he-wi{
-        height: 30px;
-        width: 30px;
-    }
+   
     .my-app{
         font-size: 20px;
     }
+}
+.he-wi{
+    height: 30px;
+    width: 30px;
 }

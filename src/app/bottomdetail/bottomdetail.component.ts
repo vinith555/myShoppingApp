@@ -13,8 +13,8 @@ export class BottomdetailComponent {
 goToTop(){
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-isMobile: boolean = window.innerWidth < 500;
+isMobile: boolean = window.innerWidth <   1000;
 @HostListener('window:resize',['$event'])onresize(){
-  this.isMobile = window.innerWidth < 500;
+  this.isMobile = window.innerWidth < 1000;
 }
 }

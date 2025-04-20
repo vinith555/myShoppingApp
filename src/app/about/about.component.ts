@@ -4,11 +4,11 @@ import { TopbarComponent } from '../topbar/topbar.component';
 
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [BottomdetailComponent,TopbarComponent],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+    standalone:true,
+    selector: 'app-about',
+    imports: [BottomdetailComponent, TopbarComponent],
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.css'
 })
 export class AboutComponent {
 

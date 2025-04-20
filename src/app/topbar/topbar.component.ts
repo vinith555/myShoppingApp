@@ -3,11 +3,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-topbar',
-  standalone: true,
-  imports: [RouterLink,RouterLinkActive,CommonModule],
-  templateUrl: './topbar.component.html',
-  styleUrl: './topbar.component.css'
+    standalone:true,
+    selector: 'app-topbar',
+    imports: [RouterLink, RouterLinkActive, CommonModule],
+    templateUrl: './topbar.component.html',
+    styleUrl: './topbar.component.css'
 })
 export class TopbarComponent {
   isMobile: boolean = window.innerWidth > 768;

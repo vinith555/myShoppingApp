@@ -8,11 +8,11 @@ import { TopbarComponent } from '../topbar/topbar.component';
 
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule,BottomdetailComponent,TopbarComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  standalone:true,
+    selector: 'app-home',
+    imports: [CommonModule, BottomdetailComponent, TopbarComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
   constructor(private route:Router,private activeRoute:ActivatedRoute , private product:ProductListService){

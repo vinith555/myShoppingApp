@@ -4,11 +4,11 @@ import { PurchaselistService } from '../../app/purchaselist.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-shipping',
-  standalone: true,
-  imports: [RouterLink],
-  templateUrl: './shipping.component.html',
-  styleUrl: './shipping.component.css'
+  standalone:true,
+    selector: 'app-shipping',
+    imports: [RouterLink],
+    templateUrl: './shipping.component.html',
+    styleUrl: './shipping.component.css'
 })
 export class ShippingComponent implements OnInit,OnDestroy{
   private sub = new Subscription();

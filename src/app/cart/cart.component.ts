@@ -8,11 +8,11 @@ import { TopbarComponent } from '../topbar/topbar.component';
 import { PurchaselistService } from '../purchaselist.service';
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [RouterLink,CommonModule,BottomdetailComponent,TopbarComponent],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css',
+  standalone:true,
+    selector: 'app-cart',
+    imports: [RouterLink, CommonModule, BottomdetailComponent, TopbarComponent],
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit,OnDestroy{
   sub = new Subscription();

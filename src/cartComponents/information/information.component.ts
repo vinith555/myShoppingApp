@@ -6,11 +6,11 @@ import { PurchaselistService } from '../../app/purchaselist.service';
 import { state } from '@angular/animations';
 
 @Component({
-  selector: 'app-information',
-  standalone: true,
-  imports: [RouterLink,FormsModule,CommonModule],
-  templateUrl: './information.component.html',
-  styleUrl: './information.component.css'
+  standalone:true,
+    selector: 'app-information',
+    imports: [RouterLink, FormsModule, CommonModule],
+    templateUrl: './information.component.html',
+    styleUrl: './information.component.css'
 })
 export class InformationComponent{
   constructor(private route:Router,private active:ActivatedRoute,private purchase:PurchaselistService){}

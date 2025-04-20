@@ -6,11 +6,11 @@ import { BottomdetailComponent } from '../bottomdetail/bottomdetail.component';
 import { TopbarComponent } from '../topbar/topbar.component';
 
 @Component({
-  selector: 'app-product',
-  standalone: true,
-  imports: [CommonModule,BottomdetailComponent,TopbarComponent],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+    standalone:true,
+    selector: 'app-product',
+    imports: [CommonModule, BottomdetailComponent, TopbarComponent],
+    templateUrl: './product.component.html',
+    styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit{
   productList:{img:string,name:string,price:number,images:string[]}[] = [];

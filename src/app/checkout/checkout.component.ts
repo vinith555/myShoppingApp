@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-checkout',
-  standalone: true,
-  imports: [CommonModule,RouterOutlet],
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.css'
+    standalone:true,
+    selector: 'app-checkout',
+    imports: [CommonModule, RouterOutlet],
+    templateUrl: './checkout.component.html',
+    styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent implements OnInit{
 totalQuatity:number = 0;
